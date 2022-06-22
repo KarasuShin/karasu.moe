@@ -74,7 +74,7 @@ onMounted(async () => {
       renderer.render(scene, camera)
     }
     loading = true
-    const obj = await loader('/model.glb')
+    const obj = await loader('https://karasu.oss-cn-chengdu.aliyuncs.com/karasu.moe/model.glb')
     scene.add(obj)
     renderer.render(scene, camera)
     loading = false
