@@ -1,13 +1,10 @@
-<script setup lang="ts">
-const logoSrc = computed(() => `/logo${isDark.value ? '-dark' : ''}.svg`)
-</script>
-
 <template>
   <header px-6 py-4 shadow-md shadow-light-400 dark:shadow-black fixed t-0 l-0 w-full select-none>
     <nav flex>
       <div flex-1>
         <router-link to="/" h="32px" inline-block>
-          <img :src="logoSrc" h-full>
+          <img src="/logo-dark.svg" h-full dark:block hidden>
+          <img src="/logo.svg" h-full dark:hidden block>
         </router-link>
       </div>
       <div inline-flex items-center gap-4 text-xl>
