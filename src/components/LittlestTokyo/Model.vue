@@ -74,7 +74,7 @@ onMounted(async () => {
       renderer.render(scene, camera)
     }
     loading = true
-    const obj = await loader('/tokyo/model.gltf')
+    const obj = await loader('/model.glb')
     scene.add(obj)
     renderer.render(scene, camera)
     loading = false
