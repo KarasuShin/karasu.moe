@@ -2,7 +2,6 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import loader from './loader'
-import Spin from '~/components/Spin.vue'
 
 const container = $ref<HTMLDivElement>()
 let renderer = $ref<THREE.WebGLRenderer>()
@@ -93,7 +92,7 @@ watch(() => isDark.value, (val) => {
 </script>
 
 <template>
-  <div ref="container" w="md:2xl lg:2xl" mx-auto flex items-center justify-center relative>
+  <div ref="container" w="md:md xl:2xl" mx-auto flex items-center justify-center relative>
     <div v-if="loading" :w="cw" :h="ch" absolute>
       <Spin :size="48" />
     </div>
