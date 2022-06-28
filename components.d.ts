@@ -8,7 +8,7 @@ declare module '@vue/runtime-core' {
     Model: typeof import('./src/components/LittlestTokyo/Model.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Spin: typeof import('./src/components/Spin.vue')['default']
+    Spin: typeof import('./src/components/Spin/Spin.vue')['default']
   }
 }
 

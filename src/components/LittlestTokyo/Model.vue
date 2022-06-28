@@ -1,38 +1,37 @@
 <script setup lang="ts">
-import * as THREE from 'three'
+import { AmbientLight, OrthographicCamera, PointLight, Scene, Vector3, WebGLRenderer, sRGBEncoding } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import loader from './loader'
-import Spin from '~/components/Spin.vue'
 
 const container = $ref<HTMLDivElement>()
-let renderer = $ref<THREE.WebGLRenderer>()
+let renderer = $ref<WebGLRenderer>()
 let req: number
-const pointlight = new THREE.PointLight(0xFFFFFF, 0, 50)
-const midLight = new THREE.AmbientLight(0xFFFFFF, 0.5)
+const pointlight = new PointLight(0xFFFFFF, 0, 50)
+const midLight = new AmbientLight(0xFFFFFF, 0.5)
 let cw = $ref(0)
 let ch = $ref(0)
 let loading = $ref(false)
 
 onMounted(async () => {
   if (container && !renderer) {
-    const scene = new THREE.Scene()
+    const scene = new Scene()
     ch = cw = container.clientWidth
-    renderer = new THREE.WebGLRenderer({
+    renderer = new WebGLRenderer({
       antialias: true,
       alpha: true,
     })
     renderer.setSize(cw, ch)
     renderer.setPixelRatio(window.devicePixelRatio)
-    renderer.outputEncoding = THREE.sRGBEncoding
+    renderer.outputEncoding = sRGBEncoding
     container.appendChild(renderer.domElement)
     const scale = cw * 0.005 + 12
 
-    const initialCameraPosition = new THREE.Vector3(
+    const initialCameraPosition = new Vector3(
       20 * Math.sin(0.2 * Math.PI),
       10,
       20 * Math.cos(0.2 * Math.PI),
     )
-    const camera = new THREE.OrthographicCamera(
+    const camera = new OrthographicCamera(
       -scale,
       scale,
       scale,
@@ -47,7 +46,7 @@ onMounted(async () => {
     scene.add(pointlight)
     scene.add(midLight)
 
-    const target = new THREE.Vector3(-0.5, 1.2, 0)
+    const target = new Vector3(-0.5, 1.2, 0)
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.autoRotate = true
     controls.target = target
@@ -70,12 +69,11 @@ onMounted(async () => {
       } else {
         controls.update()
       }
-
       renderer.render(scene, camera)
     }
     loading = true
     const obj = await loader('https://karasu.oss-cn-chengdu.aliyuncs.com/karasu.moe/model.glb')
-    scene.add(obj)
+    scene.add(obj.scene)
     renderer.render(scene, camera)
     loading = false
     animate()
@@ -93,7 +91,7 @@ watch(() => isDark.value, (val) => {
 </script>
 
 <template>
-  <div ref="container" w="md:2xl lg:2xl" mx-auto flex items-center justify-center relative>
+  <div ref="container" w="md:md xl:2xl" mx-auto flex items-center justify-center relative>
     <div v-if="loading" :w="cw" :h="ch" absolute>
       <Spin :size="48" />
     </div>
