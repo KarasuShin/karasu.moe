@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AmbientLight, OrthographicCamera, PointLight, Scene, Vector3, WebGLRenderer, sRGBEncoding } from 'three'
+import { AmbientLight, AnimationMixer, Clock, OrthographicCamera, PointLight, Scene, Vector3, WebGLRenderer, sRGBEncoding } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import loader from './loader'
 
@@ -11,6 +11,8 @@ const midLight = new AmbientLight(0xFFFFFF, 0.5)
 let cw = $ref(0)
 let ch = $ref(0)
 let loading = $ref(false)
+let mixer: AnimationMixer
+const clock = new Clock()
 
 onMounted(async () => {
   if (container && !renderer) {
@@ -69,11 +71,16 @@ onMounted(async () => {
       } else {
         controls.update()
       }
+      const delta = clock.getDelta()
+
+      mixer.update(delta)
       renderer.render(scene, camera)
     }
     loading = true
     const obj = await loader('https://karasu.oss-cn-chengdu.aliyuncs.com/karasu.moe/model.glb')
     scene.add(obj.scene)
+    mixer = new AnimationMixer(obj.scene)
+    mixer.clipAction(obj.animations[0]).play()
     renderer.render(scene, camera)
     loading = false
     animate()
