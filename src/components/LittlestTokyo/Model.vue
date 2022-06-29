@@ -14,6 +14,12 @@ let loading = $ref(false)
 let mixer: AnimationMixer
 const clock = new Clock()
 
+const { width } = useWindowSize()
+watch(width, () => {
+  if (container && renderer)
+    renderer.setSize(container.clientWidth, container.clientWidth)
+})
+
 onMounted(async () => {
   if (container && !renderer) {
     const scene = new Scene()
