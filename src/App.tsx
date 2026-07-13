@@ -95,7 +95,7 @@ function App() {
             </h1>
             <p className="hero__intro">
               你好，我是
-              Karasu，一个兴趣使然的开发者。写代码，也折腾漫画、终端与个人信息工具。这里放着我正在研究的东西，以及偶尔闪过的念头。
+              Karasu，一个兴趣使然的开发者。写代码，也折腾漫画、终端与信息流工具。这里放着我正在研究的东西，以及偶尔闪过的念头。
             </p>
             <nav className="hero__socials" aria-label="联系方式">
               <a href="mailto:karasu.shing@gmail.com" aria-label="发送邮件" title="Email">
