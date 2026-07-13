@@ -1,22 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <title>鸦巢</title>
-  <meta name="description" content="Opinionated Vite Starter Template">
-</head>
-<body class="font-sans dark:text-white dark:bg-hex-121212">
-  <div id="app"></div>
-  <script>
-    (function () {
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      const setting = localStorage.getItem('color-schema') || 'auto'
-      if (setting === 'dark' || (prefersDark && setting !== 'light'))
-        document.documentElement.classList.toggle('dark', true)
-    })()
-  </script>
-  <script type="module" src="/src/main.ts"></script>
-</body>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121312" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Karasu 的个人主页：代码、终端、漫画与一些解决真实问题的小工具。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="鸦巢 — Karasu" />
+    <meta property="og:description" content="技术宅拯救世界。" />
+    <meta property="og:url" content="https://karasu.moe" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>鸦巢 — Karasu</title>
+    <script>
+      ;(() => {
+        const savedTheme = localStorage.getItem('karasu-theme')
+        document.documentElement.dataset.theme =
+          savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark'
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
