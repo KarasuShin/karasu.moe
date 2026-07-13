@@ -1,43 +1,34 @@
-/// <reference types="vitest" />
-
-import path from 'path'
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Unocss from 'unocss/vite'
+import react from '@vitejs/plugin-react'
+import { defineConfig, lazyPlugins } from 'vite-plus'
 
 export default defineConfig({
-  resolve: {
-    alias: {
-      '~/': `${path.resolve(__dirname, 'src')}/`,
+  fmt: {
+    semi: false,
+    singleQuote: true,
+    sortPackageJson: true,
+  },
+  lint: {
+    plugins: ['react', 'typescript', 'oxc'],
+    rules: {
+      'react/rules-of-hooks': 'error',
+      'react/only-export-components': [
+        'warn',
+        {
+          allowConstantExport: true,
+        },
+      ],
+      'vite-plus/prefer-vite-plus-imports': 'error',
     },
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    jsPlugins: [
+      {
+        name: 'vite-plus',
+        specifier: 'vite-plus/oxlint-plugin',
+      },
+    ],
   },
-  plugins: [
-    Vue({
-      reactivityTransform: true,
-    }),
-    Pages(),
-    AutoImport({
-      imports: [
-        'vue',
-        'vue/macros',
-        'vue-router',
-        '@vueuse/core',
-      ],
-      dts: true,
-      dirs: [
-        './src/composables',
-      ],
-      vueTemplate: true,
-    }),
-    Components({
-      dts: true,
-    }),
-    Unocss(),
-  ],
-  test: {
-    environment: 'jsdom',
-  },
+  plugins: lazyPlugins(() => [react()]),
 })

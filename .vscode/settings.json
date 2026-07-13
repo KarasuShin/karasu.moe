@@ -1,10 +1,14 @@
 {
-  "cSpell.words": ["Vitesse"],
-  "prettier.enable": false,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "[javascript]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
+  "oxc.fmt.configPath": "./vite.config.ts",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.oxc": "explicit"
   },
-  "files.associations": {
-    "*.css": "postcss"
-  }
+  "npm.scriptRunner": "vp"
 }
