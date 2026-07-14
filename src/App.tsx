@@ -1,6 +1,7 @@
 import { Mail, Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { SiGithub, SiTelegram, SiX } from 'react-icons/si'
+import { FaTelegramPlane } from 'react-icons/fa'
+import { SiGithub, SiX } from 'react-icons/si'
 
 type Theme = 'light' | 'dark'
 
@@ -13,8 +14,6 @@ const getInitialTheme = (): Theme => {
 
   return 'dark'
 }
-
-const Mark = () => <span className="mark" aria-hidden="true" />
 
 function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
@@ -61,7 +60,6 @@ function App() {
 
       <header className="site-header">
         <a className="brand" href="#top" aria-label="鸦巢首页">
-          <Mark />
           <span className="brand__name">鸦巢</span>
         </a>
 
@@ -81,16 +79,12 @@ function App() {
       <main id="main">
         <section className="hero" id="top">
           <div className="hero__copy" data-reveal>
+            <p className="hero__slogan">TECH OTAKUS SAVE THE WORLD</p>
             <h1>
-              TECH OTAKUS
-              <span>
-                SAVE THE <br className="hero__mobile-break" />
-                WORLD
-              </span>
+              你好，我是 <span className="hero__name">Karasu</span>。
             </h1>
             <p className="hero__intro">
-              你好，我是
-              Karasu，一个兴趣使然的开发者。写代码，也折腾漫画、终端与信息流工具。这里放着我正在研究的东西，以及偶尔闪过的念头。
+              一个兴趣使然的开发者。写代码，也折腾漫画、终端与信息流工具。这里放着我正在研究的东西，以及偶尔闪过的念头。
             </p>
             <nav className="hero__socials" aria-label="联系方式">
               <a href="mailto:karasu.shing@gmail.com" aria-label="发送邮件" title="Email">
@@ -115,13 +109,13 @@ function App() {
                 <SiX aria-hidden="true" />
               </a>
               <a
-                href="https://t.me/karasushin"
+                href="https://telegram.me/karasushin"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Telegram"
                 title="Telegram"
               >
-                <SiTelegram aria-hidden="true" />
+                <FaTelegramPlane aria-hidden="true" />
               </a>
             </nav>
           </div>
