@@ -14,14 +14,7 @@ const getInitialTheme = (): Theme => {
   return 'dark'
 }
 
-const Mark = () => (
-  <span className="mark" aria-hidden="true">
-    <svg viewBox="0 0 48 48" role="img">
-      <path d="M7 7h8v14.3L31.8 7H43L24.5 22.6 44 41H32.2L15 24.7V41H7V7Z" />
-      <path className="mark__cut" d="m31 10 10 4-8 3-2-7Z" />
-    </svg>
-  </span>
-)
+const Mark = () => <span className="mark" aria-hidden="true" />
 
 function App() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme)
@@ -70,7 +63,6 @@ function App() {
         <a className="brand" href="#top" aria-label="鸦巢首页">
           <Mark />
           <span className="brand__name">鸦巢</span>
-          <span className="brand__domain">KARASU.MOE</span>
         </a>
 
         <div className="header-actions">
@@ -91,7 +83,10 @@ function App() {
           <div className="hero__copy" data-reveal>
             <h1>
               TECH OTAKUS
-              <span>SAVE THE WORLD</span>
+              <span>
+                SAVE THE <br className="hero__mobile-break" />
+                WORLD
+              </span>
             </h1>
             <p className="hero__intro">
               你好，我是
