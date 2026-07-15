@@ -12,6 +12,11 @@
   --damp-cool: oklch(46% 0.025 135 / 16%);
   --damp-warm: oklch(48% 0.035 55 / 14%);
   --damp-shadow: oklch(28% 0.012 120 / 12%);
+  --font-cjk:
+    'LXGW WenKai', 'Kaiti SC', STKaiti, 'Songti SC', STSong, 'PingFang SC', 'Microsoft YaHei', serif;
+  --font-ui:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   --paper-surface:
     linear-gradient(var(--texture-wash), var(--texture-wash)), url('/assets/paper-texture.webp'),
     radial-gradient(ellipse 68% 58% at 12% 16%, var(--damp-cool) 0 20%, transparent 74%),
@@ -19,16 +24,7 @@
     radial-gradient(ellipse 44% 32% at 48% 56%, var(--damp-shadow) 0 14%, transparent 78%);
   color: var(--ink);
   background: var(--paper);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'PingFang SC',
-    'Hiragino Sans GB',
-    'Microsoft YaHei',
-    sans-serif;
+  font-family: var(--font-cjk);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -151,9 +147,9 @@ button {
 }
 
 .brand__name {
-  font-size: 1.125rem;
-  font-weight: 760;
-  letter-spacing: 0.14em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .header-actions {
@@ -200,10 +196,8 @@ button {
   max-width: none;
   margin: 0 0 1.5rem;
   color: var(--ink);
-  font-family:
-    'Songti SC', STSong, 'Iowan Old Style', Baskerville, 'Baskerville Old Face', Georgia, serif;
   font-size: 3.1rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
   line-height: 1.08;
 }
@@ -217,6 +211,7 @@ button {
 .hero__slogan {
   margin: 0 0 clamp(1.25rem, 2vw, 1.75rem);
   color: var(--muted);
+  font-family: var(--font-ui);
   font-size: 0.75rem;
   font-weight: 680;
   letter-spacing: 0;
