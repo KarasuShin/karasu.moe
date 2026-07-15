@@ -328,9 +328,16 @@ button {
     scroll-padding-top: 66px;
   }
 
+  .site-shell {
+    padding-top: 66px;
+  }
+
   .site-header {
+    position: fixed;
+    inset: 0 0 auto;
     min-height: 66px;
     padding-inline: 1rem;
+    background: transparent;
   }
 
   .icon-button {
