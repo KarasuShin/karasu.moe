@@ -240,8 +240,8 @@ button {
 
 .hero__socials a {
   display: grid;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--line-strong);
   border-radius: 50%;
   place-items: center;
@@ -253,8 +253,8 @@ button {
 }
 
 .hero__socials svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 @media (hover: hover) {
@@ -286,11 +286,16 @@ button {
 .hero-visual img {
   display: block;
   width: min(100%, 46rem);
+  height: auto;
   max-height: calc(100svh - 100px);
   object-fit: contain;
   object-position: center right;
   transform: translateY(clamp(2.5rem, 5.5vh, 3.25rem)) scale(1.06);
   transform-origin: left center;
+}
+
+.hero-visual--mobile {
+  display: none;
 }
 
 [data-reveal] {
@@ -343,7 +348,7 @@ button {
 
   .hero__copy {
     min-height: calc(100svh - 66px);
-    padding: 5rem 1.25rem 4rem;
+    padding: clamp(1.75rem, 5svh, 2.75rem) 1.25rem clamp(1.5rem, 3.5svh, 3.5rem);
   }
 
   .hero h1 {
@@ -363,26 +368,27 @@ button {
     gap: 0.75rem;
   }
 
-  .hero__socials a {
-    width: 50px;
-    height: 50px;
+  .hero-visual--desktop {
+    display: none;
   }
 
-  .hero__socials svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .hero-visual {
+  .hero-visual--mobile {
+    display: flex;
     align-items: flex-start;
-    min-height: min(128vw, 650px);
-    padding: 1rem 0 2rem 1.5rem;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    margin-bottom: 0.25rem;
+    padding: 0;
+    overflow: visible;
   }
 
-  .hero-visual img {
-    width: 100%;
+  .hero-visual--mobile img {
+    width: min(68vw, 32svh, 16.5rem);
     max-height: none;
-    transform: none;
+    object-position: left center;
+    transform: translateX(-2%);
+    transform-origin: center;
   }
 }
 

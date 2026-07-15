@@ -79,6 +79,14 @@ function App() {
       <main id="main">
         <section className="hero" id="top">
           <div className="hero__copy" data-reveal>
+            <div className="hero-visual hero-visual--mobile">
+              <img
+                src="/assets/raven.png"
+                alt="黑白墨线风格的乌鸦侧影"
+                width={1254}
+                height={1254}
+              />
+            </div>
             <p className="hero__slogan">TECH OTAKUS SAVE THE WORLD</p>
             <h1>
               你好，我是 <span className="hero__name">Karasu</span>。
@@ -120,8 +128,8 @@ function App() {
             </nav>
           </div>
 
-          <div className="hero-visual" data-reveal>
-            <img src="/assets/raven.png" alt="黑白墨线风格的乌鸦侧影" />
+          <div className="hero-visual hero-visual--desktop" data-reveal>
+            <img src="/assets/raven.png" alt="黑白墨线风格的乌鸦侧影" width={1254} height={1254} />
           </div>
         </section>
       </main>
