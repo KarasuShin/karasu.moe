@@ -81,10 +81,11 @@ function App() {
           <div className="hero__copy" data-reveal>
             <div className="hero-visual hero-visual--mobile">
               <img
-                src="/assets/raven.png"
+                src="/assets/raven.webp"
                 alt="黑白墨线风格的乌鸦侧影"
                 width={1254}
                 height={1254}
+                fetchPriority="high"
               />
             </div>
             <p className="hero__slogan">TECH OTAKUS SAVE THE WORLD</p>
@@ -129,7 +130,13 @@ function App() {
           </div>
 
           <div className="hero-visual hero-visual--desktop" data-reveal>
-            <img src="/assets/raven.png" alt="黑白墨线风格的乌鸦侧影" width={1254} height={1254} />
+            <img
+              src="/assets/raven.webp"
+              alt="黑白墨线风格的乌鸦侧影"
+              width={1254}
+              height={1254}
+              fetchPriority="high"
+            />
           </div>
         </section>
       </main>
